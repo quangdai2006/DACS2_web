@@ -1,5 +1,6 @@
 /*Layout toàn trang*/
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -9,10 +10,20 @@ html, body {
     flex-direction: column;
 }
 
+/* Fixed header offset helper */
+:root {
+    --header-height: 80px;
+}
+
+.has-fixed-header {
+    padding-top: var(--header-height);
+}
+
 /*header*/
 .header {
     width: 100%;
-    height: 80px; /* Chiều cao cố định của header */
+    height: 80px;
+    /* Chiều cao cố định của header */
     background-color: #002aff;
     display: flex;
     align-items: center;
@@ -26,7 +37,8 @@ html, body {
     z-index: 1000;
 }
 
-.logo h2, .logo p {
+.logo h2,
+.logo p {
     margin: 0;
     color: white;
 }
@@ -53,8 +65,10 @@ html, body {
     border-radius: 5px;
     width: 250px;
 }
+
 .menu.active {
-    display: block; /* Hiển thị menu khi có class active */
+    display: block;
+    /* Hiển thị menu khi có class active */
 }
 
 .menu li {
@@ -65,47 +79,231 @@ html, body {
     cursor: pointer;
     border-bottom: 1px solid #ddd;
     transition: background 0.3s;
+    position: relative;
+    /* For submenu positioning */
 }
 
 .menu li:hover {
     background: #f0f0f0;
 }
 
+/* Submenu (hiển thị sản phẩm con khi hover) */
+.menu .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    min-width: 260px;
+    padding: 8px 0;
+    z-index: 1001;
+}
+
+.menu li:hover>.submenu {
+    display: block;
+}
+
+.menu .submenu a {
+    display: block;
+    padding: 10px 12px;
+    color: #222;
+    text-decoration: none;
+}
+
+.menu .submenu a:hover {
+    background: #eef2ff;
+}
+
+
+/* Search (modern) */
+.search {
+    position: relative;
+    flex: 0 1 400px;
+    max-width: 520px;
+    margin: 0 16px;
+}
 
 .search-bar {
     display: flex;
     align-items: center;
+    background: #fff;
+    border-radius: 6px;
+    padding: 6px 8px 6px 38px;
+    height: 40px;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+}
+
+.search-bar:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    color: #777;
+    font-size: 18px;
 }
 
 .search-bar input {
-    padding: 8px;
-    width: 250px;
+    flex: 1;
     border: none;
-    border-radius: 4px;
+    outline: none;
+    font-size: 13.5px;
+    background: transparent;
 }
 
 .search-bar button {
-    background: white;
-    border: none;
+    background: #ffffff;
+    color: #222;
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    border-radius: 6px;
     cursor: pointer;
-    padding: 8px;
+    font-weight: 600;
 }
 
-.contact-info, .user-actions {
+.search-bar button:hover {
+    background: #f3f4f6;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    padding: 8px 0;
+    z-index: 1200;
+    display: none;
+    max-height: 50vh;
+    overflow: auto;
+}
+
+.search-suggestions.active {
+    display: block;
+}
+
+.search-suggestions .sugg-item {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.search-suggestions .sugg-item i {
+    color: #666;
+}
+
+.search-suggestions .sugg-item:hover {
+    background: #f6f7fb;
+}
+
+@media (max-width: 900px) {
+    .search {
+        flex-basis: 320px;
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 680px) {
+    .search {
+        display: none;
+    }
+}
+
+.contact-info,
+.user-actions {
     display: flex;
     gap: 15px;
     color: white;
     align-items: center;
 }
 
-.contact-info span, .user-actions span {
+/* Danh mục: Modal hiển thị chi tiết */
+.modal-category {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2001;
+}
+
+.modal-category-content {
+    background: #fff;
+    width: 640px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-category-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+    padding: 16px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    background: #f8f8f8;
+}
+
+.category-item:hover {
+    background: #eef2ff;
+}
+
+.category-empty {
+    padding: 24px 16px;
+    color: #666;
+}
+
+.contact-info span,
+.user-actions span {
     display: flex;
     align-items: center;
     gap: 5px;
     cursor: pointer;
 }
 
-.contact-info span:hover, .user-actions span:hover {
+.contact-info span:hover,
+.user-actions span:hover {
     text-decoration: underline;
 }
 
@@ -114,7 +312,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Đảm bảo trang luôn cao ít nhất bằng chiều cao màn hình */
+    min-height: 100vh;
+    /* Đảm bảo trang luôn cao ít nhất bằng chiều cao màn hình */
 }
 
 
@@ -129,6 +328,7 @@ body {
     left: 0;
     right: 0;
 }
+
 .footer .contact p {
     margin: 5px 0;
     font-size: 14px;
@@ -170,7 +370,8 @@ body {
 
 /* Menu điều hướng */
 .menu {
-    display: none; /* Ẩn danh mục */
+    display: none;
+    /* Ẩn danh mục */
     position: absolute;
     top: 50px;
     left: 10px;
@@ -212,15 +413,19 @@ body {
 /* Nội dung chính */
 .main-content {
     flex: 1;
-    margin-top: 100px; /* Đẩy nội dung xuống dưới header */
+    margin-top: 100px;
+    /* Đẩy nội dung xuống dưới header */
     padding: 40px 10px;
-    padding-top: 400px; /* Đẩy nội dung xuống đúng với header */
+    padding-top: 400px;
+    /* Đẩy nội dung xuống đúng với header */
 }
 
 /* Danh sách sản phẩm */
 .product-list {
-    padding-left: 10px; /* Thụt trái ngoài màn hình 10px */
-    padding-right: 10px; /* Thụt phải ngoài màn hình 10px */
+    padding-left: 10px;
+    /* Thụt trái ngoài màn hình 10px */
+    padding-right: 10px;
+    /* Thụt phải ngoài màn hình 10px */
 }
 
 /* Tiêu đề danh mục */
@@ -255,6 +460,7 @@ body {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* Hiệu ứng khi hover */
 .product-item:hover {
     transform: translateY(-5px);
@@ -315,6 +521,7 @@ form {
     display: flex;
     flex-direction: column;
 }
+
 .input-container {
     display: flex;
     align-items: center;
@@ -329,7 +536,8 @@ form {
 .input-container i {
     font-size: 18px;
     color: #555;
-    margin-right: 10px; /* Đưa icon về phía trước */
+    margin-right: 10px;
+    /* Đưa icon về phía trước */
 }
 
 .input-container input {
@@ -369,7 +577,8 @@ button[type="submit"] {
     margin-top: 10px;
 }
 
-.google, .facebook {
+.google,
+.facebook {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -434,7 +643,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000; /* Đảm bảo popup luôn hiển thị trên footer */
+    z-index: 1000;
+    /* Đảm bảo popup luôn hiển thị trên footer */
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -515,7 +725,8 @@ button[type="submit"] {
     gap: 10px;
 }
 
-.google, .facebook {
+.google,
+.facebook {
     flex: 1;
     display: flex;
     align-items: center;
@@ -539,5 +750,3 @@ a {
     text-decoration: none;
     color: blue;
 }
-
-

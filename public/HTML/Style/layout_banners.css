@@ -1,0 +1,77 @@
+/* Narrow content layout with optional vertical side banners */
+:root {
+    --page-max-width: 1080px;
+    /* central content width */
+    --side-banner-width: 160px;
+    /* width for vertical banner slot */
+    --side-gap: 12px;
+    /* gap from viewport edge */
+}
+
+.content-narrow {
+    max-width: var(--page-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+/* Optional fixed side banners (add images inside .side-banner-inner) */
+.side-banner {
+    position: fixed;
+    top: 110px;
+    /* below header */
+    width: var(--side-banner-width);
+    z-index: 50;
+    display: none;
+    /* hidden by default until content added */
+}
+
+.side-banner.left {
+    left: var(--side-gap);
+}
+
+.side-banner.right {
+    right: var(--side-gap);
+}
+
+.side-banner-inner {
+    width: 100%;
+    min-height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Show banners only on large screens */
+@media (min-width: 1400px) {
+    .side-banner {
+        display: block;
+    }
+
+    .content-narrow {
+        max-width: calc(var(--page-max-width));
+    }
+}
+
+/* Ultra wide screens can expand central width a little */
+@media (min-width: 1700px) {
+    :root {
+        --page-max-width: 1180px;
+    }
+}
+
+/* Prevent overlap with very small screens */
+@media (max-width: 992px) {
+    .content-narrow {
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .side-banner {
+        display: none !important;
+    }
+}
