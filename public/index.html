@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Gear</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
+
 <body>
-<!-- Header -->
-<div class="header">
-    <div id="header-placeholder"></div>
-</div>
+    <!-- Header -->
+    <div class="header">
+        <div id="header-placeholder"></div>
+    </div>
 
-<!-- Main Content -->
-<div class="main-content">
-    <div id="mainContent-placeholder"></div>
-</div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div id="mainContent-placeholder"></div>
+    </div>
 
-<!-- Footer -->
-<div class="footer">
-    <div id="footer-placeholder"></div>
-</div>
+    <!-- Footer -->
+    <div class="footer">
+        <div id="footer-placeholder"></div>
+    </div>
 
-<!-- Load Components -->
-<script>
-    function loadHTML(elementId, file, callback) {
-        fetch(file)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-                if (callback) callback(); // Gọi callback sau khi tải xong
-            })
-            .catch(error => console.error(`Lỗi khi tải ${file}:`, error));
-    }
-
-    function setupHeaderEvents() {
-        console.log("✅ Header đã tải xong, bắt đầu gán sự kiện.");
-
-        // Xử lý sự kiện đăng nhập
-        const loginContainer = document.querySelector(".login-container");
-        const loginPopup = document.getElementById("loginPopup");
-        let hoverTimeout;
-
-        function showPopup() {
-            clearTimeout(hoverTimeout);
-            loginPopup.style.display = "block";
+    <!-- Load Components -->
+    <script src="js/menu.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        function loadHTML(elementId, file, callback) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    if (callback) callback(); // Gọi callback sau khi tải xong
+                })
+                .catch(error => console.error(`Lỗi khi tải ${file}:`, error));
         }
 
-        function hidePopupWithDelay() {
-            hoverTimeout = setTimeout(() => {
-                loginPopup.style.display = "none";
-            }, 200);
-        }
+        function setupHeaderEvents() {
+            console.log("✅ Header đã tải xong, bắt đầu gán sự kiện.");
 
-        if (loginContainer && loginPopup) {
-            loginContainer.addEventListener("mouseenter", showPopup);
-            loginContainer.addEventListener("mouseleave", hidePopupWithDelay);
-            loginPopup.addEventListener("mouseenter", showPopup);
-            loginPopup.addEventListener("mouseleave", hidePopupWithDelay);
-        }
+            // Xử lý sự kiện đăng nhập
+            const loginContainer = document.querySelector(".login-container");
+            const loginPopup = document.getElementById("loginPopup");
+            let hoverTimeout;
 
-        window.showLoginPopup = function() {
-            const popup = document.getElementById('popup-container');
-            popup.style.display = 'flex';
-            popup.innerHTML = `
+            function showPopup() {
+                clearTimeout(hoverTimeout);
+                loginPopup.style.display = "block";
+            }
+
+            function hidePopupWithDelay() {
+                hoverTimeout = setTimeout(() => {
+                    loginPopup.style.display = "none";
+                }, 200);
+            }
+
+            if (loginContainer && loginPopup) {
+                loginContainer.addEventListener("mouseenter", showPopup);
+                loginContainer.addEventListener("mouseleave", hidePopupWithDelay);
+                loginPopup.addEventListener("mouseenter", showPopup);
+                loginPopup.addEventListener("mouseleave", hidePopupWithDelay);
+            }
+
+            window.showLoginPopup = function () {
+                const popup = document.getElementById('popup-container');
+                popup.style.display = 'flex';
+                popup.innerHTML = `
                 <div class="modallogin">
                     <div class="modal-content">
                         <h2 style="text-align: center">ĐĂNG NHẬP TÀI KHOẢN</h2>
@@ -90,12 +95,12 @@
                         <p>Bạn chưa có tài khoản? <a href="#" onclick="showRegisterPopup()">Đăng ký ngay!</a></p>
                     </div>
                 </div>`;
-        };
+            };
 
-        window.showRegisterPopup = function() {
-            const popup = document.getElementById('popup-container');
-            popup.style.display = 'flex';
-            popup.innerHTML = `
+            window.showRegisterPopup = function () {
+                const popup = document.getElementById('popup-container');
+                popup.style.display = 'flex';
+                popup.innerHTML = `
                 <div class="modalregis">
                     <div class="modal-content-regis">
                         <h2 style="text-align: center">ĐĂNG KÝ TÀI KHOẢN</h2>
@@ -129,20 +134,41 @@
                         <p>Bạn đã có tài khoản? <a href="#" onclick="showLoginPopup()">Đăng nhập!</a></p>
                     </div>
                 </div>`;
-        };
+            };
 
-        window.closePopup = function() {
-            const popup = document.getElementById('popup-container');
-            popup.style.display = 'none';
-            popup.innerHTML = '';
-        };
+            window.closePopup = function () {
+                const popup = document.getElementById('popup-container');
+                popup.style.display = 'none';
+                popup.innerHTML = '';
+            };
 
-        document.getElementById('popup-container').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closePopup();
-            }
+            document.getElementById('popup-container').addEventListener('click', function (event) {
+                if (event.target === this) {
+                    closePopup();
+                }
+            });
+        }
+        function adjustRelativePaths(containerId, basePath) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const elementsWithSrc = container.querySelectorAll("[src], [href]");
+
+            elementsWithSrc.forEach(el => {
+                const attr = el.hasAttribute("src") ? "src" : "href";
+                const original = el.getAttribute(attr);
+
+                if (original && !original.startsWith("http") && !original.startsWith("/")) {
+                    el.setAttribute(attr, basePath + original);
+                }
+            });
+        }
+
+        loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
+        loadHTML("footer-placeholder", "component/footer.html");
+        loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
         });
-    }
+
     function adjustRelativePaths(containerId, basePath) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -166,5 +192,7 @@
     });
 </script>
 <script src="/src/js/menu.js" defer></script>
+
 </body>
+
 </html>
