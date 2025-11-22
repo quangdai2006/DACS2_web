@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Gear</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 <!-- Header -->
@@ -159,9 +159,9 @@
         });
     }
 
-    loadHTML("header-placeholder", "../HTML/Layout/header.html", setupHeaderEvents);
-    loadHTML("footer-placeholder", "../HTML/Layout/footer.html");
-    loadHTML("mainContent-placeholder", "../HTML/Layout/mainContent.html", () => {
+    loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
+    loadHTML("footer-placeholder", "component/footer.html");
+    loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
         adjustRelativePaths("mainContent-placeholder", "../HTML/Layout/");
     });
 </script>
