@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Gear</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 
 <body>
-    <div class="header"><div id="header-placeholder"></div></div>
-    <div class="main-content"><div id="mainContent-placeholder"></div></div>
-    <div class="footer"><div id="footer-placeholder"></div></div>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <div id="mainContent-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Components -->
     <script src="js/menu.js"></script>
     <script src="js/search.js"></script>
     <script src="js/header.js"></script>
     <script>
-        function loadHTML(id, file, callback) {
-            fetch(file).then(r => r.text()).then(html => {
-                document.getElementById(id).innerHTML = html;
-                if (callback) callback();
-            });
+        function loadHTML(elementId, file, callback) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    if (callback) callback(); // Gọi callback sau khi tải xong
+                })
+                .catch(error => console.error(`Lỗi khi tải ${file}:`, error));
         }
 
-        loadHTML("header-placeholder", "component/header.html");
+        
+
+        loadHTML("header-placeholder", "component/header.html", () => {
+            document.body.classList.add("has-fixed-header");
+        });
         loadHTML("mainContent-placeholder", "component/mainContent.html");
         loadHTML("footer-placeholder", "component/footer.html");
-        
     </script>
-
 </body>
-
 </html>

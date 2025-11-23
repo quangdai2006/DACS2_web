@@ -15,9 +15,7 @@ body {
     --header-height: 80px;
 }
 
-.has-fixed-header {
-    padding-top: var(--header-height);
-}
+body.has-fixed-header { padding-top: var(--header-height) !important; }
 
 /*header*/
 .header {
@@ -411,13 +409,43 @@ body {
 
 
 /* Nội dung chính */
+/* Offset toàn trang dưới header cố định */
+body {
+    padding-top: var(--header-height);
+}
+
 .main-content {
     flex: 1;
-    margin-top: 100px;
-    /* Đẩy nội dung xuống dưới header */
-    padding: 40px 10px;
-    padding-top: 400px;
-    /* Đẩy nội dung xuống đúng với header */
+    /* thêm khoảng thở nhỏ dưới header */
+    margin-top: 16px;
+    /* Căn giữa và bóp chiều ngang nội dung */
+    width: 100%;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px 12px 40px;
+}
+
+/* Khu vực banner trên sản phẩm */
+.hero-banner {
+    width: 100%;
+    height: 260px; /* Chừa không gian banner mặc định */
+    border-radius: 12px;
+    background: #f1f5f9; /* nền nhạt khi chưa có ảnh */
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero-banner { height: 180px; }
 }
 
 /* Danh sách sản phẩm */
@@ -494,16 +522,7 @@ body {
     display: block;
 }
 
-/*authentication: Register*/
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
-}
+/*authentication: Register - removed global body centering to avoid layout conflicts*/
 
 .modal-content-regis {
     background: white;
@@ -627,16 +646,7 @@ a {
     color: #555;
 }
 
-/*authentication login*/
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
-}
+/*authentication login - removed global body centering to avoid layout conflicts*/
 
 .modallogin {
     position: fixed;
