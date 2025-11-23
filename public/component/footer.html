@@ -1,331 +1,317 @@
-<<<<<<< HEAD
 <style>
-    :root {
-        --footer-bg: #ffffff;
-        --footer-muted: #64748b;
-        /* slate-500 */
-        --footer-text: #0f172a;
-        /* slate-900 */
-        --footer-accent: #22d3ee;
-        /* cyan-400 */
-        --footer-accent-2: #0ea5e9;
-        /* sky-600 */
-        --footer-card: #f8fafc;
-        --ring: rgba(14, 165, 233, 0.25);
-    }
-
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
-
-    .site-footer {
-        color: var(--footer-text);
-        background: var(--footer-bg);
-        border-top: 1px solid #e5e7eb;
-        /* subtle divider to separate from content above */
-    }
-
-    .site-footer .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 48px 16px;
-    }
-
-    .footer-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding-bottom: 28px;
-        border-bottom: none;
-    }
-
-    .brand {
-        font-size: 22px;
-        font-weight: 800;
-        letter-spacing: 0.2px;
-        text-decoration: none;
-        color: var(--footer-text);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .brand .mark {
-        background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-2));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    .social {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .social-link {
-        width: 40px;
-        height: 40px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 999px;
-        color: var(--footer-text);
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .social-link:hover {
-        transform: translateY(-2px);
-        background: #e0f2fe;
-        border-color: #bae6fd;
-        box-shadow: 0 6px 18px rgba(14, 165, 233, 0.18);
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 24px;
-        padding: 28px 0 8px;
-    }
-
-    .footer-col h4 {
-        margin: 0 0 14px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--footer-text);
-    }
-
-    .footer-col p {
-        margin: 0;
-        color: var(--footer-muted);
-        line-height: 1.6;
-        font-size: 14px;
-    }
-
-    .link-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 10px;
-    }
-
-    .link-list a {
-        text-decoration: none;
-        color: var(--footer-muted);
-        font-size: 14px;
-        transition: color .2s ease, transform .2s ease;
-    }
-
-    .link-list a:hover {
-        color: var(--footer-text);
-        transform: translateX(2px);
-    }
-
-    .card {
-        background: var(--footer-card);
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 14px;
-    }
-
-    .contact-lines {
-        display: grid;
-        gap: 6px;
-    }
-
-    .newsletter-form {
-        margin-top: 8px;
-        display: flex;
-        gap: 8px;
-    }
-
-    .newsletter-form input[type="email"] {
-        flex: 1;
-        height: 40px;
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        color: var(--footer-text);
-        padding: 0 12px;
-        outline: none;
-        transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .newsletter-form input[type="email"]:focus {
-        border-color: var(--footer-accent-2);
-        box-shadow: 0 0 0 4px var(--ring);
-    }
-
-    .newsletter-form button {
-        height: 40px;
-        padding: 0 14px;
-        border-radius: 10px;
-        border: 1px solid rgba(56, 189, 248, 0.45);
-        color: #ffffff;
-        background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-2));
-        font-weight: 700;
-        cursor: pointer;
-        transition: transform .15s ease, box-shadow .2s ease;
-        white-space: nowrap;
-    }
-
-    .newsletter-form button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
-    }
-
-    .footer-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding-top: 20px;
-        border-top: none;
-        color: var(--footer-muted);
-        font-size: 13px;
-    }
-
-    .legal {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .legal a {
-        color: var(--footer-muted);
-        text-decoration: none;
-    }
-
-    .legal a:hover {
-        color: var(--footer-text);
-    }
-
-    .dot {
-        opacity: .5;
-    }
-
-    @media (max-width: 900px) {
-        .footer-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+        :root {
+            --footer-bg: #ffffff;
+            --footer-muted: #64748b;
+            /* slate-500 */
+            --footer-text: #0f172a;
+            /* slate-900 */
+            --footer-accent: #22d3ee;
+            /* cyan-400 */
+            --footer-accent-2: #0ea5e9;
+            /* sky-600 */
+            --footer-card: #f8fafc;
+            --ring: rgba(14, 165, 233, 0.25);
         }
 
-        .footer-bottom {
-            flex-direction: column;
-            align-items: flex-start;
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
-    }
 
-    @media (max-width: 600px) {
+        .site-footer {
+            color: var(--footer-text);
+            background: var(--footer-bg);
+            border-top: 1px solid #e5e7eb;
+            /* subtle divider to separate from content above */
+        }
+
+        .site-footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+
         .footer-top {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-bottom: 28px;
+            border-bottom: none;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            text-decoration: none;
+            color: var(--footer-text);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand .mark {
+            background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            color: var(--footer-text);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            background: #e0f2fe;
+            border-color: #bae6fd;
+            box-shadow: 0 6px 18px rgba(14, 165, 233, 0.18);
         }
 
         .footer-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            padding: 28px 0 8px;
+        }
+
+        .footer-col h4 {
+            margin: 0 0 14px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--footer-text);
+        }
+
+        .footer-col p {
+            margin: 0;
+            color: var(--footer-muted);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .link-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .link-list a {
+            text-decoration: none;
+            color: var(--footer-muted);
+            font-size: 14px;
+            transition: color .2s ease, transform .2s ease;
+        }
+
+        .link-list a:hover {
+            color: var(--footer-text);
+            transform: translateX(2px);
+        }
+
+        .card {
+            background: var(--footer-card);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .contact-lines {
+            display: grid;
+            gap: 6px;
         }
 
         .newsletter-form {
-            flex-direction: column;
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            height: 40px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            color: var(--footer-text);
+            padding: 0 12px;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            border-color: var(--footer-accent-2);
+            box-shadow: 0 0 0 4px var(--ring);
         }
 
         .newsletter-form button {
-            width: 100%;
+            height: 40px;
+            padding: 0 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--footer-accent), var(--footer-accent-2));
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .15s ease, box-shadow .2s ease;
+            white-space: nowrap;
         }
-    }
-</style>
+
+        .newsletter-form button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: none;
+            color: var(--footer-muted);
+            font-size: 13px;
+        }
+
+        .legal {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .legal a {
+            color: var(--footer-muted);
+            text-decoration: none;
+        }
+
+        .legal a:hover {
+            color: var(--footer-text);
+        }
+
+        .dot {
+            opacity: .5;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+    </style>
 
 <footer class="site-footer" role="contentinfo">
-    <div class="container">
-        <div class="footer-top">
-            <a class="brand" href="/" aria-label="Trang chủ 3TD Shop">
-                <span class="mark">3TD</span> Shop
-            </a>
-            <div class="social" aria-label="Liên kết mạng xã hội">
-                <a class="social-link" href="#" aria-label="Facebook 3TD Shop"><i class='bx bxl-facebook'></i></a>
-                <a class="social-link" href="#" aria-label="Instagram 3TD Shop"><i class='bx bxl-instagram'></i></a>
-                <a class="social-link" href="#" aria-label="YouTube 3TD Shop"><i class='bx bxl-youtube'></i></a>
-            </div>
-        </div>
-
-        <div class="footer-grid">
-            <section class="footer-col">
-                <h4>Về chúng tôi</h4>
-                <p>3TD Shop chuyên cung cấp linh kiện và thiết bị gaming chính hãng, giá tốt, bảo hành uy tín.</p>
-                <div class="card contact-lines" aria-label="Thông tin liên hệ">
-                    <p>Email: support@gearshop.com</p>
-                    <p>Hotline: 033-8386-99</p>
-                    <p>Địa chỉ: 123 Phố Công Nghệ, Hà Nội</p>
+        <div class="container">
+            <div class="footer-top">
+                <a class="brand" href="/" aria-label="Trang chủ 3TD Shop">
+                    <span class="mark">3TD</span> Shop
+                </a>
+                <div class="social" aria-label="Liên kết mạng xã hội">
+                    <a class="social-link" href="#" aria-label="Facebook 3TD Shop"><i class='bx bxl-facebook'></i></a>
+                    <a class="social-link" href="#" aria-label="Instagram 3TD Shop"><i class='bx bxl-instagram'></i></a>
+                    <a class="social-link" href="#" aria-label="YouTube 3TD Shop"><i class='bx bxl-youtube'></i></a>
                 </div>
-            </section>
+            </div>
 
-            <nav class="footer-col" aria-label="Liên kết nhanh">
-                <h4>Liên kết</h4>
-                <ul class="link-list">
-                    <li><a href="/">Trang chủ</a></li>
-                    <li><a href="/product.html">Sản phẩm</a></li>
-                    <li><a href="/showroom.html">Showroom</a></li>
-                    <li><a href="/resetlookup.html">Tra cứu đơn hàng</a></li>
-                </ul>
-            </nav>
+            <div class="footer-grid">
+                <section class="footer-col">
+                    <h4>Về chúng tôi</h4>
+                    <p>3TD Shop chuyên cung cấp linh kiện và thiết bị gaming chính hãng, giá tốt, bảo hành uy tín.</p>
+                    <div class="card contact-lines" aria-label="Thông tin liên hệ">
+                        <p>Email: support@gearshop.com</p>
+                        <p>Hotline: 033-8386-99</p>
+                        <p>Địa chỉ: 123 Phố Công Nghệ, Hà Nội</p>
+                    </div>
+                </section>
 
-            <nav class="footer-col" aria-label="Hỗ trợ">
-                <h4>Hỗ trợ</h4>
-                <ul class="link-list">
-                    <li><a href="#">Hướng dẫn mua hàng</a></li>
-                    <li><a href="#">Chính sách bảo hành</a></li>
-                    <li><a href="#">Đổi trả & Hoàn tiền</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                </ul>
-            </nav>
+                <nav class="footer-col" aria-label="Liên kết nhanh">
+                    <h4>Liên kết</h4>
+                    <ul class="link-list">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li><a href="/product.html">Sản phẩm</a></li>
+                        <li><a href="/showroom.html">Showroom</a></li>
+                        <li><a href="/resetlookup.html">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </nav>
 
-            <section class="footer-col" aria-label="Newsletter">
-                <h4>Nhận tin khuyến mãi</h4>
-                <p>Đăng ký để không bỏ lỡ deal hot mỗi tuần.</p>
-                <form class="newsletter-form" action="#" method="post" aria-label="Form đăng ký email">
-                    <label class="sr-only" for="newsletter-email">Email</label>
-                    <input id="newsletter-email" name="email" type="email" placeholder="Nhập email của bạn" required>
-                    <button type="submit">Đăng ký</button>
-                </form>
-            </section>
-        </div>
+                <nav class="footer-col" aria-label="Hỗ trợ">
+                    <h4>Hỗ trợ</h4>
+                    <ul class="link-list">
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Đổi trả & Hoàn tiền</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
 
-        <div class="footer-bottom">
-            <p>© 2025 3TD Shop. All rights reserved.</p>
-            <div class="legal">
-                <a href="#">Điều khoản</a>
-                <span class="dot">•</span>
-                <a href="#">Bảo mật</a>
-                <span class="dot">•</span>
-                <a href="#">Liên hệ</a>
+                <section class="footer-col" aria-label="Newsletter">
+                    <h4>Nhận tin khuyến mãi</h4>
+                    <p>Đăng ký để không bỏ lỡ deal hot mỗi tuần.</p>
+                    <form class="newsletter-form" action="#" method="post" aria-label="Form đăng ký email">
+                        <label class="sr-only" for="newsletter-email">Email</label>
+                        <input id="newsletter-email" name="email" type="email" placeholder="Nhập email của bạn"
+                            required>
+                        <button type="submit">Đăng ký</button>
+                    </form>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 3TD Shop. All rights reserved.</p>
+                <div class="legal">
+                    <a href="#">Điều khoản</a>
+                    <span class="dot">•</span>
+                    <a href="#">Bảo mật</a>
+                    <span class="dot">•</span>
+                    <a href="#">Liên hệ</a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-=======
-<footer class="footer">
-    <div class="contact">
-        <p>&copy; 2025 3TD Shop. All rights reserved.</p>
-        <p>Email: support@gearshop.com</p>
-        <p>Hotline: 033-8386-99</p>
-    </div>
-    <div class="social-links">
-        <a href="#"><i class='bx bxl-facebook'></i> Facebook</a>
-        <a href="#"><i class='bx bxl-instagram'></i> Instagram</a>
-        <a href="#"><i class='bx bxl-youtube'></i> YouTube</a>
-    </div>
-</footer>
->>>>>>> 857ea17ea026fa15c18e2cea4b0a768ac7c963c6
+    </footer>
