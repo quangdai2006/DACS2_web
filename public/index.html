@@ -164,27 +164,6 @@
             });
         }
 
-        loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
-        loadHTML("footer-placeholder", "component/footer.html");
-        loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
-        });
-
-    function adjustRelativePaths(containerId, basePath) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        const elementsWithSrc = container.querySelectorAll("[src], [href]");
-
-        elementsWithSrc.forEach(el => {
-            const attr = el.hasAttribute("src") ? "src" : "href";
-            const original = el.getAttribute(attr);
-
-            if (original && !original.startsWith("http") && !original.startsWith("/")) {
-                el.setAttribute(attr, basePath + original);
-            }
-        });
-    }
-
     loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
     loadHTML("footer-placeholder", "component/footer.html");
     loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
