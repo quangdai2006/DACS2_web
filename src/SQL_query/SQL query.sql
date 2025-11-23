@@ -88,3 +88,57 @@ CREATE TABLE OrderItems (
 -- 9. Dữ liệu mẫu
 -- ==============================
 -- Categories
+USE gaming_store;
+INSERT INTO Categories (name, description) VALUES
+('Chuột', 'Chuột gaming hiệu năng cao cho game thủ'),
+('Bàn phím', 'Bàn phím cơ chất lượng, nhiều layout và switch'),
+('Tai nghe', 'Tai nghe gaming âm thanh sống động, đàm thoại rõ');
+
+-- Products (tham chiếu Category qua subquery để tránh lệ thuộc ID)
+INSERT INTO Products (name, description, price, category_id) VALUES
+('Logitech G Pro X Superlight 2', 'Chuột siêu nhẹ cho eSports, cảm biến Hero 2, độ chính xác cao', 3490000, (SELECT category_id FROM Categories WHERE name='Chuột')),
+('Razer DeathAdder V3', 'Thiết kế công thái học, cảm biến Focus Pro 30K, switch quang học Gen-3', 2590000, (SELECT category_id FROM Categories WHERE name='Chuột')),
+('Glorious Model O Wireless', 'Chuột tổ ong không dây nhẹ, cảm biến BAMF, thời lượng pin dài', 2190000, (SELECT category_id FROM Categories WHERE name='Chuột')),
+('Xtrfy M8 Wireless', 'Chuột siêu nhẹ, cảm biến PixArt cao cấp, build chắc chắn', 2790000, (SELECT category_id FROM Categories WHERE name='Chuột')),
+
+('Keychron K2 V2', 'Bàn phím cơ 75%, hot-swap, Bluetooth/USB-C, keycap ABS', 1890000, (SELECT category_id FROM Categories WHERE name='Bàn phím')),
+('Akko 3068B Plus', 'Bàn phím 65%, switch Akko, triple-mode (2.4G/Bluetooth/USB)', 1590000, (SELECT category_id FROM Categories WHERE name='Bàn phím')),
+('Ducky One 3 TKL', 'Bàn phím TKL, hot-swap, foam tiêu âm, keycap PBT Double-shot', 2590000, (SELECT category_id FROM Categories WHERE name='Bàn phím')),
+('NuPhy Air75', 'Bàn phím low-profile 75%, kết nối đa thiết bị, mỏng nhẹ', 2690000, (SELECT category_id FROM Categories WHERE name='Bàn phím')),
+
+('HyperX Cloud II', 'Tai nghe gaming huyền thoại, âm thanh 7.1, microphone khử ồn', 1590000, (SELECT category_id FROM Categories WHERE name='Tai nghe')),
+('Logitech G Pro X Headset', 'Tai nghe chuyên nghiệp, Blue VO!CE, âm thanh chi tiết', 2490000, (SELECT category_id FROM Categories WHERE name='Tai nghe')),
+('SteelSeries Arctis Nova 7', 'Tai nghe không dây đa nền tảng, pin bền, tiện lợi', 3990000, (SELECT category_id FROM Categories WHERE name='Tai nghe')),
+('Razer BlackShark V2', 'Âm thanh TriForce Titanium 50mm, microphone USB card', 2190000, (SELECT category_id FROM Categories WHERE name='Tai nghe'));
+
+-- Inventory
+INSERT INTO Inventory (product_id, quantity) VALUES
+((SELECT product_id FROM Products WHERE name='Logitech G Pro X Superlight 2'), 35),
+((SELECT product_id FROM Products WHERE name='Razer DeathAdder V3'), 50),
+((SELECT product_id FROM Products WHERE name='Glorious Model O Wireless'), 40),
+((SELECT product_id FROM Products WHERE name='Xtrfy M8 Wireless'), 25),
+((SELECT product_id FROM Products WHERE name='Keychron K2 V2'), 60),
+((SELECT product_id FROM Products WHERE name='Akko 3068B Plus'), 55),
+((SELECT product_id FROM Products WHERE name='Ducky One 3 TKL'), 30),
+((SELECT product_id FROM Products WHERE name='NuPhy Air75'), 28),
+((SELECT product_id FROM Products WHERE name='HyperX Cloud II'), 70),
+((SELECT product_id FROM Products WHERE name='Logitech G Pro X Headset'), 45),
+((SELECT product_id FROM Products WHERE name='SteelSeries Arctis Nova 7'), 18),
+((SELECT product_id FROM Products WHERE name='Razer BlackShark V2'), 32);
+
+-- ProductImages (static placeholders; có thể thay bằng URL ảnh thật trong thư mục public)
+INSERT INTO ProductImages (product_id, type, url) VALUES
+((SELECT product_id FROM Products WHERE name='Logitech G Pro X Superlight 2'), 'static', 'https://via.placeholder.com/480x360?text=G+Pro+X+SL2'),
+((SELECT product_id FROM Products WHERE name='Razer DeathAdder V3'), 'static', 'https://via.placeholder.com/480x360?text=DeathAdder+V3'),
+((SELECT product_id FROM Products WHERE name='Glorious Model O Wireless'), 'static', 'https://via.placeholder.com/480x360?text=Model+O+Wireless'),
+((SELECT product_id FROM Products WHERE name='Xtrfy M8 Wireless'), 'static', 'https://via.placeholder.com/480x360?text=Xtrfy+M8'),
+
+((SELECT product_id FROM Products WHERE name='Keychron K2 V2'), 'static', 'https://via.placeholder.com/480x360?text=Keychron+K2+V2'),
+((SELECT product_id FROM Products WHERE name='Akko 3068B Plus'), 'static', 'https://via.placeholder.com/480x360?text=Akko+3068B+Plus'),
+((SELECT product_id FROM Products WHERE name='Ducky One 3 TKL'), 'static', 'https://via.placeholder.com/480x360?text=Ducky+One+3+TKL'),
+((SELECT product_id FROM Products WHERE name='NuPhy Air75'), 'static', 'https://via.placeholder.com/480x360?text=NuPhy+Air75'),
+
+((SELECT product_id FROM Products WHERE name='HyperX Cloud II'), 'static', 'https://via.placeholder.com/480x360?text=HyperX+Cloud+II'),
+((SELECT product_id FROM Products WHERE name='Logitech G Pro X Headset'), 'static', 'https://via.placeholder.com/480x360?text=G+Pro+X+Headset'),
+((SELECT product_id FROM Products WHERE name='SteelSeries Arctis Nova 7'), 'static', 'https://via.placeholder.com/480x360?text=Arctis+Nova+7'),
+((SELECT product_id FROM Products WHERE name='Razer BlackShark V2'), 'static', 'https://via.placeholder.com/480x360?text=BlackShark+V2');

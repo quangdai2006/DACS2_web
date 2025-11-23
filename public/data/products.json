@@ -1,0 +1,209 @@
+{
+  "updatedAt": "2025-11-23T12:22:32.953Z",
+  "products": [
+    {
+      "id": 4,
+      "name": "Logitech G Pro X Superlight 2",
+      "description": "Chuột siêu nhẹ cho eSports, cảm biến Hero 2, độ chính xác cao",
+      "price": 3490000,
+      "categoryId": 10,
+      "category": "Chuột",
+      "quantity": 35,
+      "images": [
+        {
+          "id": 2,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=G+Pro+X+SL2"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=G+Pro+X+SL2"
+    },
+    {
+      "id": 5,
+      "name": "Razer DeathAdder V3",
+      "description": "Thiết kế công thái học, cảm biến Focus Pro 30K, switch quang học Gen-3",
+      "price": 2590000,
+      "categoryId": 10,
+      "category": "Chuột",
+      "quantity": 50,
+      "images": [
+        {
+          "id": 3,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=DeathAdder+V3"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=DeathAdder+V3"
+    },
+    {
+      "id": 6,
+      "name": "Glorious Model O Wireless",
+      "description": "Chuột tổ ong không dây nhẹ, cảm biến BAMF, thời lượng pin dài",
+      "price": 2190000,
+      "categoryId": 10,
+      "category": "Chuột",
+      "quantity": 40,
+      "images": [
+        {
+          "id": 4,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Model+O+Wireless"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Model+O+Wireless"
+    },
+    {
+      "id": 7,
+      "name": "Xtrfy M8 Wireless",
+      "description": "Chuột siêu nhẹ, cảm biến PixArt cao cấp, build chắc chắn",
+      "price": 2790000,
+      "categoryId": 10,
+      "category": "Chuột",
+      "quantity": 25,
+      "images": [
+        {
+          "id": 5,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Xtrfy+M8"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Xtrfy+M8"
+    },
+    {
+      "id": 8,
+      "name": "Keychron K2 V2",
+      "description": "Bàn phím cơ 75%, hot-swap, Bluetooth/USB-C, keycap ABS",
+      "price": 1890000,
+      "categoryId": 11,
+      "category": "Bàn phím",
+      "quantity": 60,
+      "images": [
+        {
+          "id": 6,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Keychron+K2+V2"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Keychron+K2+V2"
+    },
+    {
+      "id": 9,
+      "name": "Akko 3068B Plus",
+      "description": "Bàn phím 65%, switch Akko, triple-mode (2.4G/Bluetooth/USB)",
+      "price": 1590000,
+      "categoryId": 11,
+      "category": "Bàn phím",
+      "quantity": 55,
+      "images": [
+        {
+          "id": 7,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Akko+3068B+Plus"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Akko+3068B+Plus"
+    },
+    {
+      "id": 10,
+      "name": "Ducky One 3 TKL",
+      "description": "Bàn phím TKL, hot-swap, foam tiêu âm, keycap PBT Double-shot",
+      "price": 2590000,
+      "categoryId": 11,
+      "category": "Bàn phím",
+      "quantity": 30,
+      "images": [
+        {
+          "id": 8,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Ducky+One+3+TKL"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Ducky+One+3+TKL"
+    },
+    {
+      "id": 11,
+      "name": "NuPhy Air75",
+      "description": "Bàn phím low-profile 75%, kết nối đa thiết bị, mỏng nhẹ",
+      "price": 2690000,
+      "categoryId": 11,
+      "category": "Bàn phím",
+      "quantity": 28,
+      "images": [
+        {
+          "id": 9,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=NuPhy+Air75"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=NuPhy+Air75"
+    },
+    {
+      "id": 12,
+      "name": "HyperX Cloud II",
+      "description": "Tai nghe gaming huyền thoại, âm thanh 7.1, microphone khử ồn",
+      "price": 1590000,
+      "categoryId": 12,
+      "category": "Tai nghe",
+      "quantity": 70,
+      "images": [
+        {
+          "id": 10,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=HyperX+Cloud+II"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=HyperX+Cloud+II"
+    },
+    {
+      "id": 13,
+      "name": "Logitech G Pro X Headset",
+      "description": "Tai nghe chuyên nghiệp, Blue VO!CE, âm thanh chi tiết",
+      "price": 2490000,
+      "categoryId": 12,
+      "category": "Tai nghe",
+      "quantity": 45,
+      "images": [
+        {
+          "id": 11,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=G+Pro+X+Headset"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=G+Pro+X+Headset"
+    },
+    {
+      "id": 14,
+      "name": "SteelSeries Arctis Nova 7",
+      "description": "Tai nghe không dây đa nền tảng, pin bền, tiện lợi",
+      "price": 3990000,
+      "categoryId": 12,
+      "category": "Tai nghe",
+      "quantity": 18,
+      "images": [
+        {
+          "id": 12,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=Arctis+Nova+7"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=Arctis+Nova+7"
+    },
+    {
+      "id": 15,
+      "name": "Razer BlackShark V2",
+      "description": "Âm thanh TriForce Titanium 50mm, microphone USB card",
+      "price": 2190000,
+      "categoryId": 12,
+      "category": "Tai nghe",
+      "quantity": 32,
+      "images": [
+        {
+          "id": 13,
+          "type": "static",
+          "url": "https://via.placeholder.com/480x360?text=BlackShark+V2"
+        }
+      ],
+      "primaryImage": "https://via.placeholder.com/480x360?text=BlackShark+V2"
+    }
+  ]
+}
