@@ -11,19 +11,13 @@
 
 <body>
     <!-- Header -->
-    <div class="header">
-        <div id="header-placeholder"></div>
-    </div>
+    <div id="header-placeholder"></div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <div id="mainContent-placeholder"></div>
-    </div>
+    <div id="mainContent-placeholder"></div>
 
     <!-- Footer -->
-    <div class="footer">
-        <div id="footer-placeholder"></div>
-    </div>
+    <div id="footer-placeholder"></div>
 
     <!-- Load Components -->
     <script src="js/menu.js"></script>
@@ -164,34 +158,16 @@
             });
         }
 
-        loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
+        loadHTML("header-placeholder", "component/header.html", () => {
+            document.body.classList.add("has-fixed-header");
+            setupHeaderEvents();
+        });
         loadHTML("footer-placeholder", "component/footer.html");
         loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
+            // adjustRelativePaths("mainContent-placeholder", "../HTML/Layout/"); // Uncomment if needed
         });
+    </script>
 
-    function adjustRelativePaths(containerId, basePath) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        const elementsWithSrc = container.querySelectorAll("[src], [href]");
-
-        elementsWithSrc.forEach(el => {
-            const attr = el.hasAttribute("src") ? "src" : "href";
-            const original = el.getAttribute(attr);
-
-            if (original && !original.startsWith("http") && !original.startsWith("/")) {
-                el.setAttribute(attr, basePath + original);
-            }
-        });
-    }
-
-    loadHTML("header-placeholder", "component/header.html", setupHeaderEvents);
-    loadHTML("footer-placeholder", "component/footer.html");
-    loadHTML("mainContent-placeholder", "component/mainContent.html", () => {
-        adjustRelativePaths("mainContent-placeholder", "../HTML/Layout/");
-    });
-</script>
-<script src="/src/js/menu.js" defer></script>
 
 </body>
 
